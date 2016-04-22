@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -e
+
+cd /etc
+
+git diff --cached --exit-code && git diff --exit-code || {
+  echo "uncommitted changes in /etc, aborting"
+  exit 1
+}

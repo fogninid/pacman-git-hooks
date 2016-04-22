@@ -1,0 +1,14 @@
+.AURINFO
+.SRCINFO
+*.tar.xz
+*.tar.xz.sig
+*.tar.gz
+*.tar.gz.sig
+*.zip
+*.zip.sig
+*.tar.bz2
+*.tar.bz2.sig
+*.part
+*.pkg.tar.xz.sig
+pkg/
+src/

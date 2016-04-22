@@ -1,0 +1,13 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = git commit config changes - pre hook
+Depends = git
+When = PreTransaction
+Exec = /usr/share/libalpm/hooks/bin/git-check
+AbortOnFail

@@ -1,0 +1,13 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = git commit config changes
+Depends = git
+When = PostTransaction
+Exec = /usr/share/libalpm/hooks/bin/git-commit
+NeedsTargets

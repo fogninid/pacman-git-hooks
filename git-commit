@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -e
+
+message=$'pacman hook\n\n'
+
+lastlog="$( grep PACMAN /var/log/pacman.log | tail -n 1 )"
+[[ "$lastlog" =~ Running\ \'(pacman [^\']*) ]] && message+="${BASH_REMATCH[1]}"$'\n\n'
+
+message+="packages:"
+while read -t 2 package; do
+  message+=" $package"
+done
+
+cd /etc
+
+git diff --cached --exit-code || { echo "uncommitted changes, aborting"; exit 1; }
+
+git status --porcelain | grep -q '.*' || { echo "nothing to commit"; exit 0; }
+
+git add .
+git commit -m "$message" --author="pacman <pacman@$HOSTNAME>"
