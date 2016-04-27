@@ -9,5 +9,5 @@ Target = *
 Description = git commit config changes - pre hook
 Depends = git
 When = PreTransaction
-Exec = /usr/share/libalpm/hooks/bin/git-check
+Exec = /usr/share/libalpm/scripts/git-check
 AbortOnFail

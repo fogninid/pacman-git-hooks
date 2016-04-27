@@ -9,5 +9,5 @@ Target = *
 Description = git commit config changes
 Depends = git
 When = PostTransaction
-Exec = /usr/share/libalpm/hooks/bin/git-commit
+Exec = /usr/share/libalpm/scripts/git-commit
 NeedsTargets
